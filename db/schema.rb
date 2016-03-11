@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160311022516) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "picture"
   end
 
   add_index "grams", ["user_id"], name: "index_grams_on_user_id", using: :btree
