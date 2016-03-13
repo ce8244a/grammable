@@ -149,11 +149,12 @@ RSpec.describe GramsController, type: :controller do
 	describe "grams#create action" do
 		it "should successfully create a new gram in our database" do
 			user = FactoryGirl.create(:user)
-
       sign_in user
 
-      post :create, gram: {message: 'Hello!'}
-      expect(response).to redirect_to root_path
+      post :create, gram: {
+      message: 'Hello!',
+      picture: fixture_file_upload("/picture.png", 'image/png')
+      }
 
       gram = Gram.last
       expect(gram.message).to eq("Hello!")
